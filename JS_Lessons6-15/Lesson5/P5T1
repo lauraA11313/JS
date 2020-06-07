@@ -1,0 +1,139 @@
+let user = {
+    name: "Brian",
+    surname: "Simons",
+};
+
+delete user.name;
+
+
+let car = {
+    model: "Chiron",
+    speed: 300,
+    run: function () {
+        console.log(this.model+" едет со скоростью "+this.speed+" км/час.")
+    },
+    stop: function () {
+        console.log(this.model + " остановилась.")
+    }
+}
+
+car.run();
+car.stop();
+
+let TV = {
+    currentChannel: 1,
+    nextChannel: function () {
+        this.currentChannel++;
+    },
+    previousChannel: function () {
+        this.currentChannel--;
+    },
+    setChannel: function (num) {
+        this.currentChannel=num;
+    }
+};
+
+TV.nextChannel();
+TV.nextChannel();
+chNum = prompt("Channel number:");
+TV.setChannel(chNum);
+TV.previousChannel();
+
+
+let MP3 = {
+    model: "iPod",
+    currentSong: 1,
+    songs: [
+        {
+            numberOfSong: 1,
+            songName: "Candy",
+        }, {
+            numberOfSong: 2,
+            songName: "Ghostin",
+        }, {
+            numberOfSong: 3,
+            songName: "Love Story",
+        }],
+    nextSong: function () {
+        this.currentSong++;
+    },
+    previousSong: function () {
+        this.currentSong--;
+    },
+    setChannel: function (num) {
+        this.currentSong=num;
+    },
+
+    playSong: function () {
+        console.log("Играет " + this.getSongName());
+    },
+    stopSong: function() {
+        console.log("Песня на паузе.")
+    },
+    getSongName: function () {
+        return this.songs[this.currentSong-1].songName;
+    }
+};
+
+MP3.playSong();
+MP3.nextSong();
+MP3.nextSong();
+MP3.playSong();
+MP3.stopSong();
+
+
+let Employee = [
+    {
+        name: "John",
+        age: 28,
+        exp: 1,
+        languages: ["Java", "JS", "SQL"],
+    }, {
+        name: "Bill",
+        age: 30,
+        exp: 5,
+        languages: ["HTML", "JS", "CSS"],
+    }, {
+        name: "Mike",
+        age: 32,
+        exp: 4,
+        languages: ["Python", "SQL"],
+    }
+
+];
+
+
+function isEmpty(obj) {
+    for(var key in obj) {
+        var hasSomethingInIt = key in obj;
+        return !hasSomethingInIt;
+    }
+};
+
+
+var salaries ={
+    employees: [{
+        name: "Cris",
+        salary: 150,
+    }, {
+        name: "Brain",
+        salary: 600,
+    }, {
+        name: "John",
+        salary: 300,
+    }, {
+        name: "Steve",
+        salary: 400,
+    }, {
+        name: "Bill",
+        salary: 50,
+    }],
+    getAverageSalary: function () {
+        sum = 0;
+        for(i=0; i<this.employees.length; i++){
+            sum+=this.employees[i].salary;
+        }
+        return (sum/this.employees.length);
+}
+};
+
